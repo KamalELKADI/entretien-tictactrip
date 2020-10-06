@@ -7,7 +7,7 @@
   - [x] Require: email
   - [x] Return token
 - [x] Limit rate = 80 000 words / day
-- [ ] Deployment url or public ip
+- [x] Deployment url or public ip
 - [x] Code: github
 - [x] Language: NodeJs
 
