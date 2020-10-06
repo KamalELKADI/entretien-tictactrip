@@ -8,6 +8,7 @@ jobs:
     environment:
       NODE_ENV: 'test'
       DB_URL: mongodb://localhost:27017/titctactrip
+      LIMIT_RATE_WORDS: 80000
 
     # Specify the execution environment
     docker:
