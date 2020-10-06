@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var middlewares = require('../middlewares');
-var api = require('../api');
+const middlewares = require('../middlewares');
+const api = require('../api');
 
 
 
@@ -17,6 +17,7 @@ router.post('/token', [
 router.post('/justify',[ 
     // Private route
     middlewares.security.authenticate,
+    middlewares.security.limitRateByWords,
     api.text.justify
 ])
 
