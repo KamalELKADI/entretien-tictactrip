@@ -27,6 +27,8 @@
 
 ## API
 
+Api is limited to 80 0000 words per token, per day.
+
 ## Authenticate
 **You send:**  Your  login credentials.
 **You get:** An `x-api-token` with wich you can make further actions.
