@@ -10,3 +10,9 @@
 - [ ] Deployment url or public ip
 - [x] Code: github
 - [x] Language: NodeJs
+
+## Bonus
+
+- [ ] Tests
+- [ ] Coverage
+- [ ] Documentation
