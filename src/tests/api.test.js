@@ -7,10 +7,14 @@ describe('api', () => {
 
 		describe('token', () => {
 
-			let data
-			let response
+			afterEach(async () => {
+				await m.Session.deleteMany({});
+			})
 
 			context('when email is missing', () => {
+
+				let data
+				let response
 
 				beforeEach(async () => {
 					// given
@@ -33,6 +37,9 @@ describe('api', () => {
 			})
 
 			context('when email is invalid', () => {
+
+				let data
+				let response
 
 				beforeEach(async () => {
 					// given
@@ -58,8 +65,10 @@ describe('api', () => {
 
 			context('when there is already a session', () => {
 
+				let data
+				let response
 				let session
-				let token
+				let token        
 
 				beforeEach(async () => {
 					// given
@@ -87,6 +96,9 @@ describe('api', () => {
 			})
 
 			context('when there is no session', () => {
+
+				let data
+				let response
 
 				beforeEach(async () => {
 					// given
@@ -126,15 +138,20 @@ describe('api', () => {
 
 		describe('justify', () => {
 
-			let data
-			let response
 			let session
 
 			before(async () => {
 				session = await m.Session.create({ email: 'test@gmail.com', token: 'secret_token' });
 			})
+      
+			after(async () => {
+				await m.Session.deleteMany({});
+			})
 
 			context('when there is no data', () => {
+
+				let data
+				let response
 
 				beforeEach(async () => {
 					// given
@@ -162,6 +179,9 @@ describe('api', () => {
 			})
 
 			context('when there is data', () => {
+
+				let data
+				let response
 
 				beforeEach(async () => {
 					// given

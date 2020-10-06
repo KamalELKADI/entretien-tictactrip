@@ -5,12 +5,7 @@ const { security } = require('../middlewares');
 describe('middlewares', () => {
 
 	describe('security', () => {
-
-		let req
-		let res
-		let next
     
-
 		describe('authenticate', () => {
 
 			afterEach( async () => {
@@ -19,6 +14,9 @@ describe('middlewares', () => {
 
 			context('when token is missing', () => {
 
+				let req
+				let res
+				let next
 				let statusSpy
 				let sendSpy
 
@@ -56,6 +54,9 @@ describe('middlewares', () => {
       
 			context('when token is not linked to a session', () => {
 
+				let req
+				let res
+				let next
 				let statusSpy
 				let sendSpy
 
@@ -93,6 +94,9 @@ describe('middlewares', () => {
 
 			context('when token is valid', () => {
 
+				let req
+				let res
+				let next
 				let token = 'valid_token'
 
 				before(async () => {
@@ -127,15 +131,16 @@ describe('middlewares', () => {
 
 		describe('limitRateByWords', () => {
 
-			let session				
-			let statusSpy
-			let sendSpy
-
-			afterEach( async () => {
-				await m.Session.deleteMany({})
+			afterEach(async () => {
+				await m.Session.deleteMany({});
 			})
 
 			context('when session.words + words is under maximum limit', () => {
+
+				let req
+				let res
+				let next
+				let session				
 
 				beforeEach(async () => {
 					// given
@@ -149,9 +154,6 @@ describe('middlewares', () => {
 						send: () => res
 					}
 					next = sinon.spy(() => {});
-
-					statusSpy = sinon.spy(res, 'status')
-					sendSpy = sinon.spy(res, 'send')
 
 					// when
 					await security.limitRateByWords(req, res, next);
@@ -171,6 +173,13 @@ describe('middlewares', () => {
 			})
 
 			context('when session.words + words is above maximum limit', () => {
+
+				let req
+				let res
+				let next
+				let session				
+				let statusSpy
+				let sendSpy
 
 				beforeEach(async () => {
 					// given
@@ -205,6 +214,11 @@ describe('middlewares', () => {
 			})
 
 			context('when it\'s a new day', () => {
+
+				let req
+				let res
+				let next
+				let session
 
 				beforeEach(async () => {
 					// given
