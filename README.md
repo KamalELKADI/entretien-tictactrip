@@ -2,10 +2,11 @@
 
 - [x] Line 80 characters
 - [x] Endpoint /api/justify
-- [ ] Authentication by token
-  - [ ] Endpoint /api/token
-  - [ ] Require: email
-  - [ ] Return token
+- [x] Authentication by token
+  - [x] Endpoint /api/token
+  - [x] Require: email
+  - [x] Return token
+- [ ] Limit rate = 80 000 words / day
 - [ ] Deployment url or public ip
 - [x] Code: github
 - [x] Language: NodeJs
