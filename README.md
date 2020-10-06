@@ -6,7 +6,7 @@
   - [x] Endpoint /api/token
   - [x] Require: email
   - [x] Return token
-- [ ] Limit rate = 80 000 words / day
+- [x] Limit rate = 80 000 words / day
 - [ ] Deployment url or public ip
 - [x] Code: github
 - [x] Language: NodeJs
