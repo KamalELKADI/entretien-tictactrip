@@ -146,6 +146,9 @@ describe('middlewares', () => {
 					// given
 					session = await m.Session.create({ email: 'test@gmail.com', token: 'secret_token' })
 					req = {
+						headers: {
+							'content-type': 'text/plain'
+						},
 						body: 'Un texte qui à besoin d\'être justifier',
 						injections: { session }
 					};
@@ -189,6 +192,9 @@ describe('middlewares', () => {
 					// given
 					session = await m.Session.create({ email: 'test@gmail.com', token: 'secret_token', words: process.env.LIMIT_RATE_WORDS })
 					req = {
+						headers: {
+							'content-type': 'text/plain'
+						},
 						body: 'Un texte qui à besoin d\'être justifier',
 						injections: { session }
 					};
@@ -239,6 +245,9 @@ describe('middlewares', () => {
 					// session = await session.save();
 
 					req = {
+						headers: {
+							'content-type': 'text/plain'
+						},
 						body: 'Un texte qui à besoin d\'être justifier',
 						injections: { session }
 					};
