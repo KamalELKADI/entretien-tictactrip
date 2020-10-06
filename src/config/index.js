@@ -5,5 +5,5 @@ const dotenv = require('dotenv');
 //* Scalingo who manage envrionnement variables through an web interface.
 //* The required variables will be directly manager by this interface.
 if ( process.env.NODE_ENV !== 'production' ) {
-  dotenv.config({ path: path.join(__dirname, `.env`) });
+	dotenv.config({ path: path.join(__dirname, '.env') });
 }

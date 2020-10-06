@@ -1,0 +1,53 @@
+# Version of circle ci platform to use
+version: 2.1
+
+jobs:
+  build:
+
+    # Define some environment variables.
+    environment:
+      NODE_ENV: 'test'
+      DB_URL: mongodb://localhost:27017/titctactrip
+
+    # Specify the execution environment
+    docker:
+      - image: circleci/node:latest
+      - image: circleci/mongo:latest
+
+    steps:
+
+      # Checking out code from repository
+      - checkout
+
+      # If a cache entry with this key exists, add it to the working directory
+      - restore_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # Execute a command.
+      - run:
+          name: install
+          command: npm install
+        
+      # Persist some data to cache which can be used in subsequent builds.
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      
+      # Check for not conventional code
+      - run: npm run lint
+
+      - run:
+          name: test
+          command: npm test
+
+# Workflow allow you to define the order of execution of jobs.
+workflows:
+  # Workflow version
+  version: 2
+  # Unique name for the workflow
+  build-and-test:
+    # The jobs to run in this workflow
+    jobs:
+      - build
+          
