@@ -4,15 +4,15 @@ const { security } = require('../middlewares');
 
 describe('middlewares', () => {
 
-	afterEach( async () => {
-		await m.Session.deleteMany({})
-	})
-
 	describe('security', () => {
 
 		let req
 		let res
 		let next
+    
+		afterEach( async () => {
+			await m.Session.deleteMany({})
+		})
 
 		describe('authenticate', () => {
 
