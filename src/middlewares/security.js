@@ -38,7 +38,7 @@ module.exports = {
 
 		let lastUpdate = moment(session.tsUpdated).format('YYYY-MM-DD');
 		let now = moment().format('YYYY-MM-DD');
-
+		console.log(session, words.length, process.env.LIMIT_RATE_WORDS)
 		//* We are only comparing by day.
 		//* The session is only updated to count words.
 		//* If the last update was yesterday, the limitation rate
