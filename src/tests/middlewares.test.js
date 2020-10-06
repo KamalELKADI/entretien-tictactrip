@@ -131,16 +131,16 @@ describe('middlewares', () => {
 
 		describe('limitRateByWords', () => {
 
-			afterEach(async () => {
-				await m.Session.deleteMany({});
-			})
-
 			context('when session.words + words is under maximum limit', () => {
 
 				let req
 				let res
 				let next
-				let session				
+				let session
+
+				afterEach(async () => {
+					await m.Session.deleteMany({});
+				})
 
 				beforeEach(async () => {
 					// given
@@ -180,6 +180,10 @@ describe('middlewares', () => {
 				let session				
 				let statusSpy
 				let sendSpy
+        
+				afterEach(async () => {
+					await m.Session.deleteMany({});
+				})
 
 				beforeEach(async () => {
 					// given
@@ -219,6 +223,10 @@ describe('middlewares', () => {
 				let res
 				let next
 				let session
+        
+				afterEach(async () => {
+					await m.Session.deleteMany({});
+				})
 
 				beforeEach(async () => {
 					// given
