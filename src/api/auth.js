@@ -12,12 +12,12 @@ module.exports = {
 
 		//* Email is a required field
 		if ( !data.email ) {
-			return res.status(404).send('REQUIRED EMAIL');
+			return res.status(400).send('REQUIRED EMAIL');
 		}
 
 		//* And need to be valid
 		if ( !emailRegexp.test(data.email) ) {
-			return res.status(404).send('INVALID EMAIL');
+			return res.status(400).send('INVALID EMAIL');
 		}
     
 		let email = data.email;
