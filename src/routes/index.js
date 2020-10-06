@@ -1,19 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var text = require('../api/text');
+
+var middlewares = require('../middlewares');
+var api = require('../api');
 
 
-router.post('/justify', [
 
-  //* Main function endpoint
-  (req, res, next) => {
-    let data = req.body;
+//* Generate a json web token based on a given
+//* email in the body.
+router.post('/token', [
+  api.auth.token
+])
 
-    let justifiedText = text.justify(data)
-    
-    return res.status(200).send(justifiedText);
-  }
-
+//* Route to justify a text.
+//* Max line length is 80 characters.
+router.post('/justify',[ 
+    // Private route
+    middlewares.security.authenticate,
+    api.text.justify
 ])
 
 module.exports = router;

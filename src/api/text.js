@@ -2,7 +2,8 @@ const KEEP_EMPTY_LINE = false;
 
 module.exports = {
 
-  justify(data) {
+  justify(req, res, next) {
+    let data = req.body;
 
     //* Split the content by paragraphs.
     //* Ignoring empty value
@@ -81,7 +82,7 @@ module.exports = {
 
     }
     
-    return justifiedParagraphsArray.join("\r\n");
+    return res.status(200).send(justifiedParagraphsArray.join("\r\n"));
   }
 
 }
