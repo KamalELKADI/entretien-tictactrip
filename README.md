@@ -103,8 +103,15 @@ UNAUTHORIZED ACTIONS
 ```
 
 ```json
+HTTP/1.1 415 Unsupported Media Type
+Content-Type: text/plain
+
+UNSUPPORTED MEDIA TYPE
+```
+
+```json
 HTTP/1.1 402 Payment Required
 Content-Type: text/plain
 
 Payment Required
-``` 
+```
