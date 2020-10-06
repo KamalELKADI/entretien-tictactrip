@@ -207,11 +207,13 @@ describe('middlewares', () => {
 
 				it('should return a 402 status', () => {
 					// then
+					console.log(statusSpy);
 					expect(statusSpy).to.have.been.calledWith(402);
 				})
 
 				it('should return an Payment Required message', () => {
 					// then
+					console.log(sendSpy);
 					expect(sendSpy).to.have.been.calledWith('Payment Required');
 				})
 
