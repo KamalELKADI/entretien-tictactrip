@@ -24,9 +24,9 @@ describe('api', () => {
 					response = await request(app).post('/api/token').send(data);
 				})
 
-				it('should return a 404 status', () => {
+				it('should return a 400 status', () => {
 					// then
-					expect(response).to.have.status(404);
+					expect(response).to.have.status(400);
 				})
 
 				it('should return an REQUIRED EMAIL message', () => {
@@ -51,9 +51,9 @@ describe('api', () => {
 					response = await request(app).post('/api/token').send(data);
 				})
 
-				it('should return a 404 status', () => {
+				it('should return a 400 status', () => {
 					// then
-					expect(response).to.have.status(404);
+					expect(response).to.have.status(400);
 				})
 
 				it('should return an INVALID EMAIL message', () => {
