@@ -5,8 +5,9 @@ const m = require('../models');
 module.exports = {
 
   async authenticate(req, res, next) {
+
     //* We get the token
-    let token = req.headers['x-api-key'];
+    let token = req.headers['x-api-token'];
 
     //* Token is a required field
     if ( !token ) {
@@ -31,6 +32,7 @@ module.exports = {
   //* By checking if the user amount of words
   //* is not higher than the maximum of words per day.
   async limitRateByWords(req, res, next) {
+
     let session = req.injections.session;
     let words = req.body.split(" ").filter( x => x );
 

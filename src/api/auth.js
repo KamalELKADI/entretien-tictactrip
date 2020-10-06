@@ -14,7 +14,7 @@ module.exports = {
       return res.status(404).send('REQUIRED EMAIL');
     }
 
-    //* And need to be vali
+    //* And need to be valid
     if ( !emailRegexp.test(data.email) ) {
       return res.status(404).send('INVALID EMAIL');
     }

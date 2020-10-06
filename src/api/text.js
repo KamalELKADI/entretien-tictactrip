@@ -65,13 +65,16 @@ module.exports = {
             //* When there is a diff,
             //* we iterate the line has 80 characters.
             //* We concat the first and second words with double space.
-            while ( diff ) {
+            while ( diff && words.length > 1 ) {
               let w1 = words.shift();
               let w2 = words[0] || "";
 
               words[0] = `${w1}  ${w2}`
               diff -= 1;
             }
+
+            //* If there is still an diff, we the end of the string with space
+            words[0] = words[0] + " ".repeat(diff);
           }
 
           lines[i] = words.join(" ");
