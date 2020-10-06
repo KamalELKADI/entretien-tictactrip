@@ -33,6 +33,11 @@ module.exports = {
 	//* is not higher than the maximum of words per day.
 	async limitRateByWords(req, res, next) {
 
+		//* Empty text
+		if ( !req.body ) {
+			return res.status(200).send('');
+		}
+
 		let session = req.injections.session;
 		let words = req.body.split(' ').filter( x => x );
 
