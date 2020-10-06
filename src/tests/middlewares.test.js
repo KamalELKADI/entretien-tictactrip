@@ -10,11 +10,12 @@ describe('middlewares', () => {
 		let res
 		let next
     
-		afterEach( async () => {
-			await m.Session.deleteMany({})
-		})
 
 		describe('authenticate', () => {
+
+			afterEach( async () => {
+				await m.Session.deleteMany({})
+			})
 
 			context('when token is missing', () => {
 
@@ -129,6 +130,10 @@ describe('middlewares', () => {
 			let session				
 			let statusSpy
 			let sendSpy
+
+			afterEach( async () => {
+				await m.Session.deleteMany({})
+			})
 
 			context('when session.words + words is under maximum limit', () => {
 
