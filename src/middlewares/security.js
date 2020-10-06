@@ -33,9 +33,8 @@ module.exports = {
 	//* is not higher than the maximum of words per day.
 	async limitRateByWords(req, res, next) {
 
-		//* Empty text
-		if ( !req.body ) {
-			return res.status(200).send('');
+		if ( req.headers['content-type'] !== 'text/plain' )  {
+			return res.status(415).send('UNSUPPORTED MEDIA TYPE')
 		}
 
 		let session = req.injections.session;
